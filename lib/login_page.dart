@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frangup/authentication.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
@@ -165,7 +166,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 40),
                 GestureDetector(
-                  onTap: (){},
+                  onTap: () {
+                    final a = signInWithGoogle();
+                    print(a);
+                  },
                   child: SizedBox(
                     height: 30,
                     child: Row(
