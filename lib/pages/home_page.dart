@@ -4,6 +4,7 @@ import 'package:frangup/pages/diet_page.dart';
 import 'package:frangup/pages/exercises_page.dart';
 import 'package:frangup/pages/workout_page.dart';
 import 'package:frangup/widgets/button_app_bar.dart';
+import 'package:frangup/widgets/current_day.dart';
 import 'package:frangup/widgets/main_drawer.dart';
 import 'package:frangup/widgets/main_navigation_bar.dart';
 
@@ -36,6 +37,15 @@ class _HomePageState extends State<HomePage> {
     const DietPage()
   ];
 
+  final drawers = [
+    AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+    ),
+    const ButtonAppBar(),
+    const CurrentDay()
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,10 +54,22 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: MainBottomNavigation(
         onPageChanged: _onPageChanged,
       ),
-      appBar: ButtonAppBar(),
-      body: IndexedStack(
-        index: _currentIndex,
-        children: pages,
+      appBar: drawers[_currentIndex],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: const AssetImage("images/main_background.jpg"),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+              const Color(0xFF1B1B23).withOpacity(0.2),
+              BlendMode.srcOver,
+            ),
+          ),
+        ),
+        child: IndexedStack(
+          index: _currentIndex,
+          children: pages,
+        ),
       ),
     );
   }

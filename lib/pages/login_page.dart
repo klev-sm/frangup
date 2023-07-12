@@ -107,9 +107,10 @@ class _LoginPageState extends State<LoginPage> {
                         hintText: "Senha",
                       ),
                       style: GoogleFonts.figtree(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17,
-                          color: Colors.black),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 17,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),

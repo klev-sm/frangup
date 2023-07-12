@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:frangup/pages/workout_log_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ButtonAppBar extends StatelessWidget {
+class ButtonAppBar extends StatelessWidget implements PreferredSizeWidget {
   const ButtonAppBar({Key? key}) : super(key: key);
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,14 @@ class ButtonAppBar extends StatelessWidget {
           ),
           backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>  WorkoutLogPage(),
+            ),
+          );
+        },
         child: Text(
           "iniciar treino vazio",
           style: GoogleFonts.figtree(
