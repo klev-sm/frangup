@@ -79,7 +79,7 @@ class DietPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 3),
                 ExpansionTile(
-                  collapsedBackgroundColor: Colors.red,
+                  collapsedBackgroundColor: const Color(0xffD62823),
                   leading: const Icon(
                     Icons.more_vert,
                     color: Colors.white,
@@ -96,7 +96,7 @@ class DietPage extends StatelessWidget {
                     Icons.chevron_right,
                     color: Colors.white,
                   ),
-                  backgroundColor: Colors.red,
+                  backgroundColor: const Color(0xffD62823),
                   textColor: Colors.white,
                   children: [
                     Container(
@@ -118,7 +118,7 @@ class DietPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 3),
                 ExpansionTile(
-                  collapsedBackgroundColor: Colors.red,
+                  collapsedBackgroundColor: const Color(0xffD62823),
                   leading: const Icon(
                     Icons.more_vert,
                     color: Colors.white,
@@ -135,7 +135,7 @@ class DietPage extends StatelessWidget {
                     Icons.chevron_right,
                     color: Colors.white,
                   ),
-                  backgroundColor: Colors.red,
+                  backgroundColor: const Color(0xffD62823),
                   textColor: Colors.white,
                   children: [
                     Container(
@@ -157,7 +157,7 @@ class DietPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 3),
                 ExpansionTile(
-                  collapsedBackgroundColor: Colors.red,
+                  collapsedBackgroundColor: const Color(0xffD62823),
                   leading: const Icon(
                     Icons.more_vert,
                     color: Colors.white,
@@ -174,7 +174,7 @@ class DietPage extends StatelessWidget {
                     Icons.chevron_right,
                     color: Colors.white,
                   ),
-                  backgroundColor: Colors.red,
+                  backgroundColor: const Color(0xffD62823),
                   textColor: Colors.white,
                   children: [
                     Container(

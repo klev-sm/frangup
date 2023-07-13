@@ -10,6 +10,8 @@ class MealDays extends StatefulWidget {
 }
 
 class _MealDaysState extends State<MealDays> {
+  final Color dayColor = const Color(0xffD62823);
+
   late String onlyMonthAndDay;
   late String currentDay;
   late DateTime currentShowingDate;
@@ -45,7 +47,7 @@ class _MealDaysState extends State<MealDays> {
       currentDay = "Hoje";
     } else if (date.isAfter(now) && date.difference(now).inDays == 1) {
       currentDay = "Amanhã";
-    } else if (date.isBefore(now)  && date.difference(now).inDays == -1) {
+    } else if (date.isBefore(now) && date.difference(now).inDays == -1) {
       currentDay = "Ontem";
     } else {
       currentDay = DateFormat("EEEE", "pt_BR").format(currentShowingDate);
@@ -82,7 +84,7 @@ class _MealDaysState extends State<MealDays> {
             Text(
               currentDay,
               style: GoogleFonts.figtree(
-                color: const Color(0xffD62823),
+                color: currentDay == "Hoje" ? dayColor : Colors.white,
                 fontWeight: FontWeight.w500,
                 fontSize: 18,
               ),
