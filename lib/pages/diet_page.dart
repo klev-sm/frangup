@@ -1,5 +1,5 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:frangup/widgets/meal_days.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DietPage extends StatelessWidget {
@@ -7,13 +7,14 @@ class DietPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          RichText(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const MealDays(),
+        const SizedBox(height: 20),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: RichText(
             text: TextSpan(
               style: GoogleFonts.figtree(
                 fontWeight: FontWeight.w300,
@@ -30,13 +31,16 @@ class DietPage extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 20),
-          SingleChildScrollView(
+        ),
+        const SizedBox(height: 20),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: SingleChildScrollView(
             padding: EdgeInsets.zero,
             child: Column(
               children: [
                 ExpansionTile(
-                  collapsedBackgroundColor: Colors.red,
+                  collapsedBackgroundColor: const Color(0xffD62823),
                   leading: const Icon(
                     Icons.more_vert,
                     color: Colors.white,
@@ -53,7 +57,7 @@ class DietPage extends StatelessWidget {
                     Icons.chevron_right,
                     color: Colors.white,
                   ),
-                  backgroundColor: Colors.red,
+                  backgroundColor: const Color(0xffD62823),
                   textColor: Colors.white,
                   children: [
                     Container(
@@ -193,9 +197,9 @@ class DietPage extends StatelessWidget {
                 const SizedBox(height: 20),
               ],
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }
