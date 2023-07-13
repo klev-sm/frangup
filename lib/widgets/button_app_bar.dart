@@ -27,7 +27,7 @@ class ButtonAppBar extends StatelessWidget implements PreferredSizeWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) =>  WorkoutLogPage(),
+              builder: (context) => const WorkoutLogPage(),
             ),
           );
         },

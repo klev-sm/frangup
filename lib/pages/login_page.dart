@@ -69,103 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 25),
-                Container(
-                  color: Colors.white,
-                  margin: const EdgeInsets.symmetric(horizontal: 50),
-                  padding: const EdgeInsets.only(left: 10),
-                  height: 40,
-                  child: Center(
-                    child: TextField(
-                      maxLines: 1,
-                      keyboardType: TextInputType.name,
-                      cursorColor: const Color(0xFFD62823),
-                      autofocus: false,
-                      decoration: const InputDecoration.collapsed(
-                        hintText: "Usuário",
-                      ),
-                      style: GoogleFonts.figtree(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17,
-                          color: Colors.black),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Container(
-                  color: Colors.white,
-                  height: 40,
-                  margin: const EdgeInsets.symmetric(horizontal: 50),
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Center(
-                    child: TextField(
-                      maxLines: 1,
-                      keyboardType: TextInputType.name,
-                      cursorColor: const Color(0xFFD62823),
-                      autofocus: false,
-                      decoration: const InputDecoration.collapsed(
-                        hintText: "Senha",
-                      ),
-                      style: GoogleFonts.figtree(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 17,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
                 const SizedBox(height: 20),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 50),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                        const Color(0xFFD62823),
-                      ),
-                    ),
-                    child: Text(
-                      "Acessar".toUpperCase(),
-                      style: GoogleFonts.roboto(
-                          color: Colors.white, fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 50),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {},
-                          child: Text(
-                            "Criar Conta",
-                            style: GoogleFonts.figtree(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w300),
-                          ),
-                        ),
-                      ),
-                      Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {},
-                          child: Text(
-                            "Esqueci a Senha",
-                            style: GoogleFonts.figtree(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w300),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 40),
                 GestureDetector(
                   onTap: () {
                     final a = signInWithGoogle();
@@ -184,15 +88,30 @@ class _LoginPageState extends State<LoginPage> {
                           color: const Color(0xFF393944),
                           width: 150,
                           alignment: Alignment.center,
-                          child: const Text(
-                            "Login com Google",
-                            style: TextStyle(color: Colors.white),
-                          ),
+                          child:  Text("Login com Google",
+                              style: GoogleFonts.figtree(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              )),
                         ),
                       ],
                     ),
                   ),
-                )
+                ),
+                const SizedBox(height: 20),
+                InkWell(
+                  onTap: (){
+                    print("asdas");
+                  },
+                  child: Text(
+                    "Entrar como convidado",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.figtree(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
               ],
             )
           ],

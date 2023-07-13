@@ -14,6 +14,7 @@ class _WorkoutLogPageState extends State<WorkoutLogPage> {
   Timer? _timer;
   int _secondsElapsed = 0;
   bool _isTimerPaused = false;
+  List _exercises = [];
 
   @override
   void initState() {
@@ -98,12 +99,59 @@ class _WorkoutLogPageState extends State<WorkoutLogPage> {
         title: Text(
           '${hours.toString().padLeft(2, "0")}:${minutes.toString().padLeft(2, "0")}'
           ':${seconds.toString().padLeft(2, "0")}',
-          key: ValueKey('timer_text'), // Adicionando uma chave para o widget
           style: GoogleFonts.figtree(
             fontWeight: FontWeight.w500,
             fontSize: 17,
             color: Colors.white,
           ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.settings),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.check,
+              color: Colors.green,
+            ),
+          ),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            _exercises.isEmpty ?
+            Text(
+              "Ainda não há exercício aqui, cadastre um.",
+              textAlign: TextAlign.center,
+              style: GoogleFonts.figtree(
+                  color: Colors.white, fontWeight: FontWeight.w600),
+            ) :
+            SizedBox(
+              height: 200,
+              child: ListView(
+                padding: const EdgeInsets.only(top: 20),
+                children:const [
+                   Text("É ISSO AÍ")
+                ],
+              ),
+            ),
+            const SizedBox(height: 10,),
+            ElevatedButton.icon(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color?>(
+                  const Color(0xffD62823),
+                ),
+              ),
+              onPressed: () {},
+              icon: const Icon(Icons.add),
+              label: const Text("Exercícios"),
+            ),
+          ],
         ),
       ),
     );

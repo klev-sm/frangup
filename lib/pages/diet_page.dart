@@ -191,32 +191,6 @@ class DietPage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    onTap: () {},
-                    child: FractionallySizedBox(
-                      widthFactor: 1.0,
-                      child: DottedBorder(
-                        color: Colors.white,
-                        child: Container(
-                          alignment: Alignment.center,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 60,
-                            vertical: 10,
-                          ),
-                          child: const Text(
-                            "+ adicionar nova refeição",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                )
               ],
             ),
           )
