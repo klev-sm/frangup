@@ -20,7 +20,7 @@ class _ExercisesPageState extends State<ExercisesPage> {
             fontSize: 20,
           ),
           children: const [
-            TextSpan(text: "Tipos  "),
+            TextSpan(text: "Modalidades  "),
             TextSpan(
               text: "de Treino",
               style: TextStyle(

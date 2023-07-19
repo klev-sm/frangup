@@ -38,6 +38,7 @@ dependencies:
   google_sign_in: ^5.4.4
   firebase_auth: ^4.6.2
   firebase_core: ^2.13.1
+  cloud_firestore: ^4.8.2
   dotted_border: ^2.0.0+3
   intl: ^0.18.1
 
@@ -72,6 +73,14 @@ flutter:
     - images/google_logo.png
     - images/optimized_bg_login.jpg
     - images/main_background.jpg
+    - images/Female-01-256.png
+    - images/Male-01-256-B.png
+    - images/fire-red.png
+    - images/fire-white.png
+    - images/heart-white.png
+    - images/heart-red.png
+    - images/dumbbells-white.png
+    - images/dumbbells-red.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

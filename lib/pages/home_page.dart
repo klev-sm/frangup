@@ -9,7 +9,9 @@ import 'package:frangup/widgets/main_drawer.dart';
 import 'package:frangup/widgets/main_navigation_bar.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key, required this.currentUser}) : super(key: key);
+
+  final User currentUser;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -17,12 +19,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
-  late User? currentUser;
 
   @override
   void initState() {
     super.initState();
-    currentUser = FirebaseAuth.instance.currentUser;
   }
 
   void _onPageChanged(int index) {
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF1B1B23),
-      drawer: MainDrawer(currentUser: currentUser),
+      drawer: MainDrawer(currentUser: widget.currentUser),
       bottomNavigationBar: MainBottomNavigation(
         onPageChanged: _onPageChanged,
       ),

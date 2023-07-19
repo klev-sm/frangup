@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:frangup/authentication.dart';
+import 'package:frangup/pages/home_page.dart';
+import 'package:frangup/pages/user_onboarding.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
@@ -71,9 +74,28 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 20),
                 GestureDetector(
-                  onTap: () {
-                    final a = signInWithGoogle();
-                    print(a);
+                  onTap: () async {
+                    UserCredential userCredential = await signInWithGoogle();
+                    if (context.mounted) {
+                      if (userCredential.additionalUserInfo!.isNewUser) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => UserOnboarding(
+                              currentUser: userCredential.user!,
+                            ),
+                          ),
+                        );
+                      } else {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                HomePage(currentUser: userCredential.user!),
+                          ),
+                        );
+                      }
+                    }
                   },
                   child: SizedBox(
                     height: 30,
@@ -88,11 +110,13 @@ class _LoginPageState extends State<LoginPage> {
                           color: const Color(0xFF393944),
                           width: 150,
                           alignment: Alignment.center,
-                          child:  Text("Login com Google",
-                              style: GoogleFonts.figtree(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500,
-                              )),
+                          child: Text(
+                            "Login com Google",
+                            style: GoogleFonts.figtree(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -100,9 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 20),
                 InkWell(
-                  onTap: (){
-                    print("asdas");
-                  },
+                  onTap: () {},
                   child: Text(
                     "Entrar como convidado",
                     textAlign: TextAlign.center,

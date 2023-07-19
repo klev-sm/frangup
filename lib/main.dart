@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:frangup/pages/home_page.dart';
 import 'package:frangup/pages/login_page.dart';
+import 'package:frangup/pages/splash_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
@@ -10,27 +11,35 @@ void main() async {
   await Firebase.initializeApp();
   initializeDateFormatting("pt_BR");
 
-  runApp(
-    MaterialApp(
-      home: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(
-                backgroundColor: Color(0xFF1B1B23),
-                color: Colors.red,
-              ),
-            );
-          } else {
-            if (snapshot.hasData) {
-              return const HomePage();
+  runApp(MaterialApp(
+    home: FutureBuilder<User?>(
+      future: checkCurrentUserStatus(),
+      builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const SplashScreen();
+        } else {
+          if(snapshot.hasData) {
+            if(snapshot.data != null) {
+              return HomePage(currentUser: snapshot.data!);
             } else {
               return const LoginPage();
             }
+          } else {
+            return const LoginPage();
           }
-        },
-      ),
+        }
+      },
     ),
-  );
+  ));
+}
+
+Future<User?> checkCurrentUserStatus() async {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  User? currentUser = auth.currentUser;
+
+  if (currentUser != null) {
+    return currentUser;
+  } else {
+    return null;
+  }
 }
