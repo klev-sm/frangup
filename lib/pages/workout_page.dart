@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frangup/pages/workout_log_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WorkoutPage extends StatelessWidget {
@@ -35,12 +36,17 @@ class WorkoutPage extends StatelessWidget {
             runSpacing: 7.0,
             children: [
               const Text(
-                "Ainda não há treino registrado, seu frango, ",
+                "Ainda não há treino registrado, ",
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
               InkWell(
                 onTap: () {
-                  print("a");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const WorkoutLogPage(),
+                    ),
+                  );
                 },
                 child: const Text(
                   "criar um agora",

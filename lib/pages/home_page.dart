@@ -32,16 +32,16 @@ class _HomePageState extends State<HomePage> {
   }
 
   final List<Widget> pages = [
-    const ExercisesPage(),
+    //const ExercisesPage(),
     const WorkoutPage(),
     const DietPage()
   ];
 
   final drawers = [
-    AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-    ),
+    // AppBar(
+    //   backgroundColor: Colors.transparent,
+    //   elevation: 0,
+    // ),
     const ButtonAppBar(),
     const CurrentDay()
   ];
@@ -51,9 +51,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: const Color(0xFF1B1B23),
       drawer: MainDrawer(currentUser: widget.currentUser),
-      bottomNavigationBar: MainBottomNavigation(
-        onPageChanged: _onPageChanged,
-      ),
       appBar: drawers[_currentIndex],
       body: Container(
         decoration: BoxDecoration(

@@ -31,21 +31,9 @@ class _MainBottomNavigationState extends State<MainBottomNavigation> {
       currentIndex: _currentIndex,
       items: const [
         BottomNavigationBarItem(
-          label: "Exercícios",
-          icon: Icon(
-              Icons.schedule,
-          ),
-        ),
-        BottomNavigationBarItem(
           label: "Treino",
           icon: Icon(
             Icons.fitness_center,
-          ),
-        ),
-        BottomNavigationBarItem(
-          label: "Nutrição",
-          icon: Icon(
-              Icons.restaurant,
           ),
         ),
       ],
